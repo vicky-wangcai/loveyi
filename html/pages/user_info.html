@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LOVEYI管理系统</title>
+    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/fileinput.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="center_html">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="home_header">个人信息</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                       基本信息查看和修改：
+                    </div>
+                    <div class="panel-body user_info">
+                    	头像
+                        <img alt="LOVEYI" src="../images/logo.jpg" class="user_head"/>
+                        <button class="change" data-toggle="modal" data-target="#head">
+                            修改
+                        </button>
+                    </div>
+                    <div class="panel-body user_info">
+                    	名称
+                        <span id="login_name">loveyi</span>
+                        <button class="change" data-toggle="modal" data-target="#login_name1">
+                            修改
+                        </button>
+                    </div>
+                    <div class="panel-body user_info">
+                    	密码
+                        <span id="login_pwd">*******</span>
+                        <button class="change" data-toggle="modal" data-target="#login_pwd1">
+                            修改
+                        </button>
+                    </div>
+                    <div class="panel-body user_info">
+                    	邮箱
+                        <span id="login_email">loveyi@163.com</span>
+                        <button class="change" data-toggle="modal" data-target="#login_email1">
+                            修改
+                        </button>
+                    </div>
+                    <div class="panel-body user_info">
+                    	电话
+                        <span id="login_tel">15806128888</span>
+                        <button class="change" data-toggle="modal" data-target="#login_tel1">
+                            修改
+                        </button>
+                    </div>
+                    <div class="panel-body user_info">
+                        <img alt="LOVEYI" src="../images/wxzf.png" class="user_zhif"/>
+                        <img alt="LOVEYI" src="../images/zhifb.png" class="user_zhif"/>
+                        <div style="float:right;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="head" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                       修改头像
+                    </h4>
+                </div>
+                <div class="modal-body font_y">
+                	<div style="margin-bottom:20px;">
+                    一个月只能申请5次修改;<br>
+                    新头像不允许涉及政治敏感与色情;<br>
+                    修改头像需经过审核;<br>
+                    图片格式只支持：BMP、JPEG、JPG、GIF、PNG，大小不超过2M<br>
+                    </div>
+                    <input id="head_p" type="file" class="file" multiple>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        提交更改
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="login_name1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:400px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                       修改名称（登录名）
+                    </h4>
+                </div>
+                <div class="modal-body font_y">
+                	<div style="margin-bottom:20px;">
+                        <div style="vertical-align:middle;">
+                            <span>新登录名:</span><input id="login_nm" class="form-control" type="text">
+                        </div>
+                        <div>
+                            <span>密码:</span><input id="login_p" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        提交更改
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="login_pwd1"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:400px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                       修改密码
+                    </h4>
+                </div>
+                <div class="modal-body font_y">
+                	<div style="margin-bottom:20px;">
+                        <div style="vertical-align:middle;">
+                            <span>原密码:</span><input id="login_nm" class="form-control" type="text">
+                        </div>
+                        <div>
+                            <span>新密码:</span><input id="login_p" class="form-control" type="text">
+                        </div>
+                        <div>
+                            <span>确认密码:</span><input id="login_p" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        提交更改
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="login_email1"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:550px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                       修改邮箱
+                    </h4>
+                </div>
+                <div class="modal-body font_y">
+                	<div style="margin-bottom:20px;">
+                    
+                        <div style="vertical-align:middle;">
+                            <span>邮箱:</span><input id="login_nm" class="form-control" type="text">
+                            <button class="btn btn-success" style="display:inline;" data-toggle="modal" data-target="#login_tel1">
+                                获取验证码
+                            </button>
+
+                        </div>
+                        <div>
+                            <span>验证码:</span><input id="login_p" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        提交更改
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="login_tel1"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:550px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                       修改电话
+                    </h4>
+                </div>
+                <div class="modal-body font_y">
+                	<div style="margin-bottom:20px;">
+                    
+                        <div style="vertical-align:middle;">
+                            <span>电话:</span><input id="login_nm" class="form-control" type="text">
+                            <button class="btn btn-success" style="display:inline;" data-toggle="modal" data-target="#login_tel1">
+                                获取验证码
+                            </button>
+
+                        </div>
+                        <div>
+                            <span>验证码:</span><input id="login_p" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        提交更改
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/fileinput.js"></script>
+    <script src="../vendor/bootstrap/js/fileinput_zh.js"></script>
+    <script>
+		//初始化fileinput控件（第一次初始化）
+		function initFileInput(ctrlName, uploadUrl) {    
+			var control = $('#' + ctrlName); 
+		
+			control.fileinput({
+				language: 'zh', //设置语言
+				uploadUrl: uploadUrl, //上传的地址
+				allowedFileExtensions : ['jpg', 'png','gif'],//接收的文件后缀
+				showUpload: false, //是否显示上传按钮
+				showCaption: false,//是否显示标题
+				browseClass: "btn btn-primary", //按钮样式             
+				previewFileIcon: "<i class='glyphicon glyphicon-king'></i>", 
+			});
+		}   
+		initFileInput("head_p", "/User/EditPortrait"); 
+     </script>
+</body>
+</html>

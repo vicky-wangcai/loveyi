@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LOVEYI管理系统</title>
+    <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap-table.css" rel="stylesheet" />
+    <!--图标-->
+    <link href="../vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!--图表-->
+    <link href="../css/sb-admin-2.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="center_html">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="home_header">会员管理</h3>
+            </div>
+        </div>
+        
+        <div class="row">
+        
+            <ul id="myTab" class="nav nav-tabs">
+                <li><a href="#vip_mg" data-toggle="tab">会员信息</a></li>
+                <li><a href="#vip_info" data-toggle="tab">会员图示</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="vip_mg">
+                    <div class="col-lg-12">
+                        <div class="panel-body" style="padding-left:0px; padding-right:0px;">
+                            <form id="formSearch" class="form-horizontal">
+                                <div style="margin-top:15px">
+                                    <label class="control-label col-sm-1" for="name" >姓名</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" id="name" onChange="Search()">
+                                    </div>
+                                    <label class="control-label col-sm-1" for="telno">电话</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control" id="telno" onMouseMove="Search()">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="toolbar" class="btn-group">
+                            <button class="btn btn-success" data-toggle="modal" data-target="#btn_add">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+                            </button>
+                            <button class="btn btn-info" data-toggle="modal" data-target="#btn_edit">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改
+                            </button>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#btn_delete">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+                            </button>
+                        </div>
+                        <div class="bs-example">
+                            <table id="sdata" data-toggle="table" data-url="user.json" data-height="490" data-pagination="true">
+                                <thead>
+                                    <tr>
+                                        <th data-field="state" data-radio="true"></th>
+                                        <th data-field="name" data-align="center">姓名</th>
+                                        <th data-field="telno" data-align="center">电话</th>
+                                        <th data-field="id" data-align="center">会员卡号</th>
+                                        <th data-field="date" data-align="center">申请日期</th>
+                                        <th data-field="amount" data-align="center">卡余额</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="vip_info">
+                    <div class="col-lg-12">
+                        <div class="panel-heading">
+                           <h4>会员年龄、性别分布图示：</h4>
+                        </div>
+                        <div class="panel-body"  style="height:500px;">
+                            <div class="flot-chart" style="height:500px;">
+                                <div class="flot-chart-content"  id="vip_chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+
+    <div class="modal fade" id="btn_add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:400px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                       新增会员
+                    </h4>
+                </div>
+                <div class="modal-body font_y">
+                	<div style="margin-bottom:20px;">
+                        <div style="vertical-align:middle;">
+                            <span>姓名:</span><input id="login_nm" class="form-control" type="text">
+                        </div>
+                        <div>
+                            <span>电话:</span><input id="login_p" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        提交
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="btn_edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:400px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                       修改会员资料
+                    </h4>
+                </div>
+                <div class="modal-body font_y">
+                	<div style="margin-bottom:20px;">
+                        <div style="vertical-align:middle;">
+                            <span>姓名:</span><input id="login_nm" class="form-control" type="text">
+                        </div>
+                        <div>
+                            <span>电话:</span><input id="login_p" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        提交
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/jquery/jquery.json-2.3.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap-table.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap-table-zh-CN.js"></script>
+    <script src="../js/vip_table.js"></script>
+    <script src="../js/vip_chart.js"></script>
+    <script src="../js/echarts.js"></script>
+    <script src="../js/sb-admin-2.js"></script>
+	<script src="../js/moment.js"></script>
+    <script>
+        var myChart = echarts.init(document.getElementById('vip_chart'));
+		myChart.setOption(option);
+		$(function(){
+			var url = location.href;     
+			var paraString = url.substring(url.indexOf("?")+1,url.length);   
+			// 通过名称选取标签页
+			$('#myTab a[href="#'+paraString+'"]').tab('show');
+		});
+		
+		$(document).ready(function() {
+			$('#reportrange2 span').html(moment().subtract('days', 29).format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+			$('#reportrange2').daterangepicker();
+		});
+		
+		function Search(){
+			$("#finishingTask").bootstrapTable('load',data); 
+			var data = {};
+			//data = $("#formSearch").serializeObject();
+			data.date=$("#date").val();
+			data.name=$("#name").val();
+			data.telno=$("#telno").val();
+			var params = $.toJSON(data);
+			$.ajax({
+				type: "post",
+				dataType: 'html',
+				contentType: "application/json",
+				url: "/vip_search",
+				data: data,
+				success: function(data) {
+					if (data.success == "00") {
+					}
+				},
+			});
+		}
+    </script>
+</body>
+</html>

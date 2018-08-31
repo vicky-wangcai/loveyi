@@ -1,0 +1,275 @@
+@charset "utf-8";
+/* CSS Document */
+.logo{
+	height:30px;
+	width:auto;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-left:20px;
+}
+.ewm{
+	height:50px;
+    width:auto;
+	float:right;
+	margin-right:20px;
+}
+
+@media (min-width: 768px) {
+	.logo{
+		height:45px;
+		width:auto;
+		margin-left:0px;
+	}
+	.ewm{
+		height:75px;
+		width:auto;
+		float:right;
+		margin-right:0px;
+	}
+}
+
+header {
+  background-image: url('../images/header.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;/* Safari 和 Chrome */
+  -moz-background-size: cover; /* 老的 Firefox */
+  background-size: cover;
+  -o-background-size: cover; /* Opera */
+
+}
+.overlay{
+  background:rgba(0,0,0,0.4);
+}
+
+footer span.copyright {
+  line-height: 26px;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  text-transform: none;
+}
+
+footer {
+  padding: 13px 0;
+  text-align: center;
+}
+
+.user{
+	background-image:url(../images/icon-user.png);
+	background-repeat:no-repeat;
+	padding-left:50px;
+	margin-bottom:25px;
+}
+.password{
+	background-image:url(../images/icon-pass.png);
+	background-repeat:no-repeat;
+	padding-left:50px;
+	margin-bottom:25px;
+}
+.rme{
+	margin-bottom:25px;
+}
+
+
+
+@media (min-width: 768px) {
+.menu_frame{
+	margin-top:100px;
+	border:1px solid #e7e7eb;
+	background-color:#FFF;
+	width:100%;
+	height:100%;
+	display:inline-flex;
+	position:relative;
+}
+}
+
+.login-panel {
+  margin-top: 16%;
+  margin-bottom: 18%;
+  margin-left:15px;
+  margin-right:15px;
+}
+@media (min-width: 768px) {
+	.login-panel {
+	  margin-top: 10%;
+	  margin-bottom: 12%;
+	  margin-left:67%;
+	  margin-right:0px;
+	  height:300px;
+	}
+}
+
+.main_menu{
+	display:none;
+}
+
+.user_menu{
+	display:none;
+	line-height:60px;
+}
+
+
+@media (min-width: 768px) {
+	.main_menu{
+		line-height:35px;
+		border-right:1px solid #e7e7eb;
+		color:#e7e7eb;
+		display:block;
+		width:180px;
+		height:1000px;
+		padding-top:20px;
+	}
+	
+	.main_menu dt{
+		position: relative;
+		padding: 0 30px 0;
+		width: auto;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		word-wrap: normal;
+		line-height: 55px;
+		font-size: 16px;
+		color: #222;
+	}
+	
+	.main_menu dd{
+		display: block;
+		padding: 0 0 0 58px;
+		width: auto;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		word-wrap: normal;
+		color: #222;
+		line-height: 40px;
+		font-size:15px;
+	}
+	
+	.phone_menu{
+		display:none;
+	}
+		
+}
+
+.phone_menu{
+	font-size:11px;
+	float:right !important;
+}
+
+.data_info
+{
+	width:25%;
+}
+
+.center_html{
+	padding:0px 20px 20px 20px;
+}
+.total_money{
+	background-image:url(../images/total_money.png);
+}
+.home_header{
+	/*margin: 0px 0px 28px 0px;*/
+}
+.input-group{
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+
+.user_info{
+	color:#999;
+	border-bottom:1px solid #ddd;
+	padding:20px;
+	padding-left:50px;
+}
+
+.user_head{
+	margin-left:100px;
+	height:100px;
+}
+.user_zhif{
+	margin-left:120px;
+	height:100%;
+}
+@media (max-width: 700px){
+	.user_info{
+		padding:6px;
+	}
+	
+	.user_zhif{
+		margin-left:90px;
+		margin-top:10px;
+		height:50%;
+		width:50%;
+	}
+}
+
+
+
+.user_info span{
+	margin-left:100px;
+	color:#000;
+}
+
+.user_info a{
+	color:#06C;
+	float:right;
+	vertical-align:middle;
+	margin-right:20px;
+}
+.change{
+	color:#06C;
+	float:right;
+	vertical-align:middle;
+	margin-right:20px;
+	background:none;
+	border:none;
+}
+
+.head_ch{
+	width:300px;
+}
+
+.head_fr{
+	margin-top:40px;
+	border:1px solid #ddd;
+	width:320px;
+	padding:10px;
+}
+
+.font_y{
+	color:#8d8d8d;
+	padding:40px;
+}
+
+.font_y span{
+	width:80px; float:left; line-height:35px;
+}
+
+.font_y input{
+	width:200px; margin-bottom:20px; display:inline;
+}
+
+.search_bn{
+	padding: 5px 10px;
+	font-size: 16px;
+	line-height: 1.4;
+	border-radius: 3px;
+	width:100px;
+	margin-bottom:20px;
+}
+#tdata2{
+	display:none;
+}
+
+@media (max-width: 768px) {
+	#sname,#dno,#sname1,#dno1,#tdata1{
+		display:none;
+	}
+	#tdata2{
+		display:inline-block;
+	}
+}

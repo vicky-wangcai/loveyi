@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--视区-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="vicky">
+    <title>LOVEYI管理系统</title>
+    <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../vendor/metisMenu/metisMenu.css" rel="stylesheet">
+    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+    <link href="../vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body style="background-color:#ededed;">
+    <!--nav 导航链接-->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <!--container bootstrap外层容器：用于固定宽度并支持响应式布局的容器-->
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <a href="#body"><img alt="LOVEYI" src="../images/logo.png" class="logo"/></a>
+                <ul class="nav phone_menu navbar-nav ">
+                    <li><a href="javascript:void(0);" id="home" onClick="onClickmenu(id,'')">首页</a></li>
+                    <li><a href="javascript:void(0);" id="trans_query" onClick="onClickmenu(id,'detail')">交易</a></li>
+                    <li><a href="javascript:void(0);" id="vip_manage" onClick="onClickmenu(id,'vip_mg')">会员</a></li>
+                    <li><a href="javascript:void(0);" id="user_info" onClick="onClickmenu(id,'')">个人</a></li>
+                </ul>
+            </div>
+
+            <div class="collapse navbar-collapse user_menu">
+                <ul class="nav navbar-nav navbar-right">
+                	<img alt="LOVEYI" src="../images/logo.jpg" style="height:60px; float:left;"/>
+                    <li><a href="#body">vicky</a></li>
+                    <li><a href="../login.html">退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="menu_frame">
+            <div class="main_menu">
+                <dl>
+                    <dt>
+                        <a href="javascript:void(0);" id="home" onClick="onClickmenu(id,'')">首页</a>
+                    </dt>
+                    <dt>
+                        <a href="javascript:void(0);" id="trans_query" onClick="onClickmenu(id,'detail')">交易查询</a>
+                    </dt>
+                    <dd>
+                        <a href="javascript:void(0);" id="trans_query" onClick="onClickmenu(id,'detail')">交易明细</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0);" id="trans_query" onClick="onClickmenu(id,'total_amount')">交易金额</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0);" id="trans_query" onClick="onClickmenu(id,'total_count')">交易笔数</a>
+                    </dd>
+                    <dt>
+                        <a href="javascript:void(0);" id="vip_manage" onClick="onClickmenu(id,'vip_mg')">会员管理</a>
+                    </dt>
+                    <dd>
+                        <a href="javascript:void(0);" id="vip_manage" onClick="onClickmenu(id,'vip_mg')">会员信息</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:void(0);" id="vip_manage" onClick="onClickmenu(id,'vip_info')">会员图示</a>
+                    </dd>
+                    <!--dt>
+                        <a href="javascript:void(0);" id="user_manage" onClick="onClickmenu(id,'')">用户管理</a>
+                    </dt-->
+                    <dt>
+                        <a href="javascript:void(0);" id="user_info" onClick="onClickmenu(id,'')">个人信息</a>
+                    </dt>
+                </dl>
+            </div>
+            <div>
+                <iframe src="home.html" id="main_iframe" class="main_iframe" frameborder="0">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+	<script>
+		function onClickmenu(id,no) {
+			var url = id + '.html?' + no;
+			$("#main_iframe").attr('src', url);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LOVEYI管理系统</title>
+    <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!--图标-->
+    <link href="../vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!--图表-->
+    <link href="../css/sb-admin-2.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/daterangepicker-bs3.css" rel="stylesheet" type="text/css" media="all"  />
+    <link href="../css/bootstrap-table.css" rel="stylesheet">
+    <link href="../css/docs.css" rel="stylesheet">
+</head>
+<body style="padding-top:0px;">
+    <div class="center_html">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="home_header">交易查询</h3>
+            </div>
+        </div>
+        <div class="row">
+            <ul id="myTab" class="nav nav-tabs">
+                <li><a href="#detail" data-toggle="tab">交易明细</a></li>
+                <li><a href="#total_amount" data-toggle="tab">交易金额</a></li>
+                <li><a href="#total_count" data-toggle="tab">交易笔数</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade" id="detail">
+                    <div class="col-lg-12">
+                        <div class="panel">
+                            <form class="form-horizontal" role="form">
+                                <div class="input-group">
+                                    <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text"  style="width: 180px" name="amount_date" id="amount_date" class="form-control" value="2017-8-17 - 2017-8-21" /> 
+                                    <span class="add-on input-group-addon" id="sname1">商品名称：</span><input type="text"  style="width: 180px" name="sname" id="sname" class="form-control" /> 
+                                    <span class="add-on input-group-addon" id="dno1">订单号：</span><input type="text"  style="width: 180px" name="dno" id="dno" class="form-control" /> 
+                                </div>
+                                <div style="text-align:center;">
+                                    <input type="button" class="btn search_bn btn-info" name="search" id="search" onChange="Search()" value="查询"/> 
+                                </div>
+                                
+                            </form>                            
+                            <div class="bs-example" id="tdata1">
+                                <table id="sdata" data-toggle="table" data-url="trans.json" data-height="410" data-pagination="true">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="name" data-align="center">商品名称</th>
+                                            <th data-field="no" data-align="center">订单号</th>
+                                            <th data-field="price" data-align="center" >单价</th>
+                                            <th data-field="number" data-align="center">数量</th>
+                                            <th data-field="amount" data-align="center">总价</th>
+                                            <th data-field="date" data-align="center">交易日期</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="bs-example" id="tdata2">
+                                <table id="sdata1" data-toggle="table" data-url="trans.json" data-height="410" data-pagination="true">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="name" data-align="center">商品名称</th>
+                                            <th data-field="no" data-align="center">订单号</th>
+                                            <th data-field="amount" data-align="center">总价</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="total_amount">
+                    <div class="col-lg-12">
+                        <div class="panel-body">
+                            <div class="input-prepend input-group">
+                                <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text"  style="width: 200px" name="amount_date" id="amount_date" class="form-control" value="2017-8-17 - 2017-8-21" /> 
+                            </div>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="amount_chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="total_count">
+                    <div class="col-lg-12">
+                        <div class="panel-body">
+                            <div class="input-prepend input-group">
+                                <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text"  style="width: 200px" name="count_date" id="count_date" class="form-control" value="2017-8-17 - 2014-8-22" /> 
+                            </div>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="count_chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/total_amount.js"></script>
+    <script src="../js/echarts.js"></script>
+    <script src="../js/sb-admin-2.js"></script>
+	<script src="../js/moment.js"></script>
+    <script src="../js/daterangepicker.js"></script>
+    <script src="../js/examples.js"></script>
+    <script src="../js/bootstrap-table.js"></script>
+    <script src="../js/docs.js"></script>
+    <script>
+        var myChart = echarts.init(document.getElementById('amount_chart'));
+		myChart.setOption(option);
+        var myChart1 = echarts.init(document.getElementById('count_chart'));
+		myChart1.setOption(option1);
+		
+		$(function(){
+			var url = location.href;     
+			var paraString = url.substring(url.indexOf("?")+1,url.length);    
+			// 通过名称选取标签页
+			$('#myTab a[href="#'+paraString+'"]').tab('show');
+		});
+
+		$(document).ready(function() {
+			$('#reportrange2 span').html(moment().subtract('days', 29).format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+			$('#reportrange2').daterangepicker();
+		});
+		
+		$(document).ready(function() {
+			$('#amount_date').daterangepicker(null, function(start, end, label) {
+				console.log(start.toISOString(), end.toISOString(), label);
+			});
+		});
+		$(document).ready(function() {
+			$('#count_date').daterangepicker(null, function(start, end, label) {
+				console.log(start.toISOString(), end.toISOString(), label);
+			});
+		});
+    </script>
+</body>
+</html>
